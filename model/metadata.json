@@ -1,0 +1,82 @@
+{
+  "best_model": "Logistic Regression",
+  "feature_cols": [
+    "Age",
+    "Transaction_Amount",
+    "Transaction_Hour",
+    "Previous_Transactions",
+    "Gender",
+    "Payment_Type",
+    "Location",
+    "Device_Type",
+    "Network_Type"
+  ],
+  "categorical_cols": [
+    "Gender",
+    "Payment_Type",
+    "Location",
+    "Device_Type",
+    "Network_Type"
+  ],
+  "numeric_cols": [
+    "Age",
+    "Transaction_Amount",
+    "Transaction_Hour",
+    "Previous_Transactions"
+  ],
+  "encoders": {
+    "Gender": [
+      "Female",
+      "Male"
+    ],
+    "Payment_Type": [
+      "Credit Card",
+      "Debit Card",
+      "Net Banking",
+      "UPI",
+      "Wallet"
+    ],
+    "Location": [
+      "Bangalore",
+      "Chennai",
+      "Coimbatore",
+      "Delhi",
+      "Hyderabad",
+      "Kolkata",
+      "Mumbai",
+      "Pune"
+    ],
+    "Device_Type": [
+      "Laptop",
+      "Mobile",
+      "Tablet"
+    ],
+    "Network_Type": [
+      "Mobile Data",
+      "WiFi"
+    ],
+    "Fraud": [
+      "No",
+      "Yes"
+    ]
+  },
+  "uses_scaled_input": true,
+  "results": {
+    "Logistic Regression": {
+      "accuracy": 0.589,
+      "precision": 0.0169,
+      "recall": 0.6364,
+      "f1": 0.0329
+    },
+    "Random Forest": {
+      "accuracy": 0.9845,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "amount_range": [
+    50.0,
+    37973.84
+  ]
+}
