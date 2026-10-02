@@ -1,23 +1,23 @@
-Online Payment Fraud Detection — Streamlit Web App
+# Online Payment Fraud Detection - Streamlit Web App
 
 An interactive web app that estimates fraud risk for online payment
 transactions, built with Logistic Regression and Random Forest, and
 deployed as a live Streamlit dashboard.
 
-Live demo: add your Streamlit Community Cloud link here after deploying
+**Live demo:** _add your Streamlit Community Cloud link here after deploying_
 
-Overview
+## Overview
 This project trains and compares two classifiers on a 10,000-row
 online payment transaction dataset, then wraps the deployed model in
 a Streamlit app with three views:
-- Predict — enter transaction details and get a live fraud-risk
+- **Predict** — enter transaction details and get a live fraud-risk
   score, with an adjustable decision threshold.
-- Dataset Overview — class balance, transaction amount
+- **Dataset Overview** — class balance, transaction amount
   distribution, and fraud rate by payment type.
-- Model Performance — Accuracy / Precision / Recall / F1-Score
+- **Model Performance** — Accuracy / Precision / Recall / F1-Score
   comparison between the two models.
 
-Dataset
+## Dataset
 `data/fraud.csv` — 10,000 transaction records with columns:
 
 | Column | Description |
@@ -32,15 +32,15 @@ Dataset
 | Device_Type | Tablet / Laptop / Mobile |
 | Network_Type | Mobile Data / WiFi |
 | Previous_Transactions | Customer's prior transaction count |
-| Fraud | Target — Yes / No |
+| Fraud | **Target** — Yes / No |
 
-Tech Stack
+## Tech Stack
 - Python, Pandas, NumPy
 - Scikit-learn (Logistic Regression, Random Forest)
 - Streamlit (web app)
 - Plotly (interactive charts)
 
-Setup & Run Locally
+## Setup & Run Locally
 ```bash
 # 1. Clone the repo
 git clone https://github.com/<your-username>/online-payment-fraud-detection.git
@@ -57,30 +57,30 @@ streamlit run app.py
 ```
 The app opens at `http://localhost:8501`.
 
-Approach
-1. Data Cleaning — dropped ID columns, confirmed no missing values
+## Approach
+1. **Data Cleaning** — dropped ID columns, confirmed no missing values
    across all 10,000 rows.
-2. Encoding — label-encoded categorical fields (Gender, Payment
+2. **Encoding** — label-encoded categorical fields (Gender, Payment
    Type, Location, Device Type, Network Type) and the target.
-3. Modeling — trained Logistic Regression (scaled features) and
+3. **Modeling** — trained Logistic Regression (scaled features) and
    Random Forest (raw features), both with `class_weight="balanced"`
    to address the severe class imbalance (~1% fraud).
-4. Evaluation — Accuracy, Precision, Recall, F1-Score, plus a
+4. **Evaluation** — Accuracy, Precision, Recall, F1-Score, plus a
    confusion matrix; given the imbalance, F1-Score (not accuracy) was
    used to pick the deployed model.
-5. Deployment — Streamlit app loads the saved model/scaler, with
+5. **Deployment** — Streamlit app loads the saved model/scaler, with
    an adjustable decision threshold so the precision/recall trade-off
    is explorable live.
 
-Results & an honest note on this dataset
+## Results & an honest note on this dataset
 
 | Model | Accuracy | Precision | Recall | F1-Score |
 |---|---|---|---|---|
-| Logistic Regression (deployed) | 0.589 | 0.017 | 0.636 | 0.033 |
+| **Logistic Regression (deployed)** | 0.589 | 0.017 | 0.636 | 0.033 |
 | Random Forest | 0.985 | 0.000 | 0.000 | 0.000 |
 
 A correlation check between each feature and the fraud label showed
-near-zero correlation across the board — the fraud rate sits at
+**near-zero correlation across the board** — the fraud rate sits at
 roughly the same ~1% regardless of age, amount, hour, location,
 device, or payment type. That's a common property of small synthetic
 datasets like this one: there's no real pattern for a model to learn.
@@ -95,7 +95,7 @@ the Kaggle "PaySim" online payments dataset, which has genuine fraud
 patterns) can be dropped in as `data/fraud.csv` and re-trained with no
 code changes — a good next step for extending this portfolio piece.
 
-Project Structure
+## Project Structure
 ```
 fraud-detection/
 ├── app.py                  # Streamlit web app
@@ -110,9 +110,9 @@ fraud-detection/
 └── README.md
 ```
 
-Disclaimer
+## Disclaimer
 This is a portfolio/demo project illustrating the fraud-detection
 workflow end-to-end. It is **not** a production-grade fraud system.
 
-License
+## License
 MIT
